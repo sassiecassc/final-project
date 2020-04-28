@@ -50,7 +50,7 @@ if(player_collide == true){
 		controls_enabled = false;
 		
 		if(stun_timer <= 0){ //if timer hits 0 then
-			stun_timer = 21; //set timer back to 10
+			stun_timer = 20; //set timer back to 10
 			controls_enabled = true;
 			player_collide = false;
 		}
