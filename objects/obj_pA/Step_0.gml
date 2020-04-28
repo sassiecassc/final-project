@@ -96,6 +96,25 @@ if(otherplayer.knocked_out == true){
 */
 
 
+
+//update the position of the player wins emitter every frame to match this instance position
+part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
+if (show_playerwins == true) {
+//emit 1 per frame
+//tell the new emitter to stream one particle every frame
+part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, -10); //negative number 1 in 5 chance that particle would spawn that frame
+} else {
+//emit 0 per frame
+part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, 0);
+}
+
+//setting condition of when particle effect should stop
+if(otherplayer.y >= room_height - 50){
+	show_playerwins = false;
+}
+
+
+
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
 	show_debug_message("punching and colliding");
@@ -116,6 +135,9 @@ if(punching == true) and (player_collide){
 	
 	//tell the other player to be knocked out
 	otherplayer.knocked_out = true;
+	//particle effect when knocked out
+	//setting condition
+	show_playerwins = true;
 }
 
 
@@ -126,5 +148,10 @@ if(punching == true) and (player_collide){
 //} else if(y_spd > 0){
 	//sprite_index = spr_playerA_down;
 //}
+
+
+
+
+
 
 event_inherited();

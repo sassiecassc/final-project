@@ -57,7 +57,7 @@ if(y_spd > 0){ //if player is moving down
 
 
 if(respawn == true){
-	y_spd = jump_spd * 1.25; //this is condition of respawn = true;
+	y_spd = jump_spd * 1.5; //this is condition of respawn = true;
 }
 
 if(place_meeting(x, y, obj_floor)){
@@ -72,11 +72,11 @@ if(place_meeting(x, y, obj_floor)){
 	}
 }
 
-	//when should respawn become false? this will lead to working player controls and regular bush collisions and have grav
-	if(y < 420) and (respawn == true){
-		respawn = false;
-		knocked_out = false;
-	}
+//when should respawn become false? this will lead to working player controls and regular bush collisions and have grav
+if(y < 420) and (respawn == true){
+	respawn = false;
+	knocked_out = false;
+}
 
 
 //collision with ceiling
@@ -85,3 +85,5 @@ if(y <= 0){ //if player is moving up
 		y_spd = -jump_spd;
 	}
 }
+
+
