@@ -105,6 +105,13 @@ if(otherplayer.knocked_out == true){
 */
 
 
+//if on the right side of the player then turn the sprite so it's facing the other player the right way
+if(x > otherplayer.x){
+	
+	sprite_index = spr_playerB_flipped;
+}
+
+
 //update the position of the player wins emitter every frame to match this instance position
 part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
 if (show_playerwins == true) {
