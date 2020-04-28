@@ -3,7 +3,7 @@
 
 if(bush_hp <= 0){ //if player bounced on this bush 5 or more times then start timer
 	hp_timer -= 1;
-	if(hp_timer <= 280){
+	if(hp_timer <= 480){
 		x = 1000; //move bush
 	}
 	
@@ -18,7 +18,7 @@ if(hp_timer <= 0){
 	x = og_xpos;
 	y = og_ypos;
 	bush_hp = 3;
-	hp_timer = 300;
+	hp_timer = 500;
 	sprite_index = spr_platform;
 }
 
