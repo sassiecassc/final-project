@@ -39,11 +39,13 @@ if(y_spd > 0){ //if player is moving down
 		var bush = instance_place(x, y, obj_platform);
 		//bush.damaged_bush = true;
 		if(bush != noone){
-			if(bush.bush_hp > 0){ //if this specific bush's hp is greater than 5
+			if(bush.bush_hp > 0){ //if this specific bush's hp is greater than 3
 				bush.bush_hp -= 1; //then subtract one after colliding with it
-			
 				//then have the player bounce back up if the bush is "alive"
 				y_spd = jump_spd;
+			} if(bush.bush_hp == 1){
+				//change sprite so it's damaged
+				bush.sprite_index = spr_platform_damaged;
 			}
 		} //else {
 			//bush.damaged_bush = false;
@@ -58,6 +60,8 @@ if(y_spd > 0){ //if player is moving down
 
 if(respawn == true){
 	y_spd = jump_spd * 1.5; //this is condition of respawn = true;
+	//randomize x position of player 
+	//x = random_range(45, room_width-45);
 }
 
 if(place_meeting(x, y, obj_floor)){
