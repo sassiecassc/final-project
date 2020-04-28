@@ -66,7 +66,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "500",
+            "value": "400",
             "varName": "hp_timer",
             "varType": 0
         },
