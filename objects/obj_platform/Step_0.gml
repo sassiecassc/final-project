@@ -21,11 +21,3 @@ if(hp_timer <= 0){
 	hp_timer = 400;
 	sprite_index = spr_platform;
 }
-
-/*
-if(damaged_bush == true){
-	sprite_index = spr_platform_damaged;
-} else if(damaged_bush == false){
-	sprite_index = spr_platform;
-}
-/*

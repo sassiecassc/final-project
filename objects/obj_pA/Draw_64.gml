@@ -3,6 +3,6 @@
 
 
 draw_set_color(c_black);
-draw_text(580, 20, "score: " + string(score_A));
+draw_text(580, 20, string(score_A));
 
-draw_self();
+//draw_self();

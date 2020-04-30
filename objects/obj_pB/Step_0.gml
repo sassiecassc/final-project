@@ -13,13 +13,6 @@ if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if
 	x_spd *= 0.95;
 }
 
-/*
-if(y_spd < 0){
-	sprite_index = spr_playerB_up;
-} else {
-	sprite_index = spr_playerB;
-}
-*/
 
 //use speed to set position
 x += x_spd;
@@ -105,30 +98,6 @@ if(otherplayer.knocked_out == true){
 */
 
 
-//if on the right side of the player then turn the sprite so it's facing the other player the right way
-if(x > otherplayer.x){
-	
-	sprite_index = spr_playerB_flipped;
-}
-
-
-//update the position of the player wins emitter every frame to match this instance position
-part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
-if (show_playerwins == true) {
-//emit 1 per frame
-//tell the new emitter to stream one particle every frame
-part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, -10); //negative number 1 in 5 chance that particle would spawn that frame
-} else {
-//emit 0 per frame
-part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, 0);
-}
-
-//setting condition of when particle effect should stop
-if(otherplayer.y >= room_height - 50){
-	show_playerwins = false;
-}
-
-
 
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
@@ -155,6 +124,28 @@ if(punching == true) and (player_collide){
 	show_playerwins = true;
 }
 
+//if on the right side of the player then turn the sprite so it's facing the other player the right way
+if(x > otherplayer.x){
+	
+	sprite_index = spr_playerB_flipped;
+}
+
+
+//update the position of the player wins emitter every frame to match this instance position
+part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
+if (show_playerwins == true) {
+//emit 1 per frame
+//tell the new emitter to stream one particle every frame
+part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, -10); //negative number 1 in 5 chance that particle would spawn that frame
+} else {
+//emit 0 per frame
+part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, 0);
+}
+
+//setting condition of when particle effect should stop
+if(otherplayer.y >= room_height - 50){
+	show_playerwins = false;
+}
 
 
 //animations

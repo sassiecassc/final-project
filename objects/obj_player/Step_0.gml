@@ -60,8 +60,6 @@ if(y_spd > 0){ //if player is moving down
 
 if(respawn == true){
 	y_spd = jump_spd * 1.5; //this is condition of respawn = true;
-	//randomize x position of player 
-	//x = random_range(45, room_width-45);
 }
 
 if(place_meeting(x, y, obj_floor)){
@@ -72,7 +70,10 @@ if(place_meeting(x, y, obj_floor)){
 	if(respawn_timer <= 0){
 		respawn = true;
 		respawn_timer = 60;
+		//player comes back up
 		y -= 20;
+		//randomize x position of player 
+		x = random_range(45, room_width-45);
 	}
 }
 
