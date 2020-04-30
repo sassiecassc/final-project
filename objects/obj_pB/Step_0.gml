@@ -61,6 +61,7 @@ if(place_meeting(x, y, otherplayer)){
 
 
 //setting what happens when two players collide
+//what is this
 if(player_collide == true){ 
 	if(stun_timer > 0){ //if stun timer is greater than 0 then start the timer
 		stun_timer -= 1;
