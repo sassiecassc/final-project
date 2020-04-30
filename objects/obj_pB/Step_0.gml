@@ -2,6 +2,7 @@
 // You can write your code in this editor
 
 image_xscale = 3.25;
+image_yscale = 3.25;
 //player controls
 if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if the player is pressing left and controls_enabled is true
 	//subtract x_spd and move left
@@ -12,6 +13,29 @@ if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if
 	x_spd += 0.4;
 } else { //else slow down a bit
 	x_spd *= 0.95;
+}
+
+//player can punch at any time when they are pressing down punch key but it wont count unless colliding
+if(keyboard_check(ord("S")) == false){
+	punching = false;
+}
+if(keyboard_check(ord("S"))){
+	sprite_index = spr_playerB_punch1; //switch to punching sprite
+	punching = true;
+} else if(y_spd < 0){ //if not pressing space key and is moving up then 
+	//sprite should be up animation
+	sprite_index = spr_playerB_up;
+} else {
+	//sprite is still
+	sprite_index = spr_playerB;
+}
+
+
+
+//reference to the other player so i can knock them away
+var otherplayer = obj_pB; //get first instance of player A in the scene
+if(object_index == obj_pB){ //im player A
+	otherplayer = obj_pA; //then player B is other player
 }
 
 //if on the right side of the player then turn the sprite so it's facing the other player the right way
@@ -29,11 +53,6 @@ x += x_spd;
 	
 //}
 	
-//reference to the other player so i can knock them away
-var otherplayer = obj_pB; //get first instance of player A in the scene
-if(object_index == obj_pB){ //im player A
-	otherplayer = obj_pA; //then player B is other player
-}
 
 //collision with other player = small bounce away from each other in opposite directions
 if(place_meeting(x, y, otherplayer)){
@@ -70,60 +89,26 @@ if(player_collide == true){
 
 
 
-//player can punch at any time buT if they are pressing down punch key AND colliding then a punch will count.
-if(keyboard_check(ord("S")) == false){
-	punching = false;
-}
-if(keyboard_check(ord("S"))){
-	sprite_index = spr_playerB_punch1; //switch to punching sprite
-	punching = true;
-} else if(y_spd < 0){ //if not pressing space key and is moving up then 
-	//sprite should be up animation
-	sprite_index = spr_playerB_up;
-} else {
-	//sprite is still
-	sprite_index = spr_playerB;
-}
-
-
-//if other player has been collided with and punched then knocked_out is true
-/*
-if(otherplayer.knocked_out == true){
-	if(stun_timer > 0){
-		stun_timer -= 1;
-		//other player cannot move side to side
-		if(keyboard_check(vk_left) or (keyboard_check(vk_right))){
-			otherplayer.x += otherplayer.x_spd;
-			otherplayer.x_spd = 0;
-		}
-	}
-	//this would plummet the other character
-	otherplayer.y_spd = 8;
-}
-*/
-
-
 
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
-	show_debug_message("punching and colliding");
 	//if im punching AND touching the other player, then
-	//knock the palyers away from each other by changing their speeds
+	//knock me away because i am still alive by changing my x_spd away from knocked out player
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
 		x_spd = 15;
-		//otherplayer.x_spd = -7; // other player ricochets faster to the left
 	} else { //else i must be to the left of the other player
 		x_spd = -15; //ricochet to the left
-		//otherplayer.x_spd = 7; //other player ricochets faster to the right
 	}
 	
+	//if other player wasn't knocked out yet
 	if(otherplayer.knocked_out == false){ //only add score once
 		score_B += 1;
 	}
 	
 	//tell the other player to be knocked out
 	otherplayer.knocked_out = true;
+	
 	//particle effect when knocked out
 	//setting condition
 	show_playerwins = true;

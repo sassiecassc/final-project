@@ -151,14 +151,6 @@
             }
         },
         {
-            "Key": "4e5e167f-156e-4dec-929f-3062f30d4f51",
-            "Value": {
-                "id": "29486112-17f6-44cc-b427-58235d31d4f9",
-                "resourcePath": "sprites\/spr_playerA_down_flipped\/spr_playerA_down_flipped.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "4ee9e732-b764-4694-88da-e55502ff7ce6",
             "Value": {
                 "id": "d470ca10-2688-44e6-9abc-ec402641dd89",
@@ -199,26 +191,10 @@
             }
         },
         {
-            "Key": "6b7eca22-7f66-4253-b9cf-4321b6fc588f",
-            "Value": {
-                "id": "fe8b8342-b408-4ca7-bd17-e4111cc94b24",
-                "resourcePath": "sprites\/spr_playerA_punch1_flipped\/spr_playerA_punch1_flipped.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "72450852-9464-4073-9fea-3e7e9352feae",
             "Value": {
                 "id": "c41a7f57-97a2-4045-bfe9-d945a8149ee9",
                 "resourcePath": "sprites\/spr_playerB_punch1\/spr_playerB_punch1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "74d4bf3b-e01f-4783-838c-e95d5ba7ebef",
-            "Value": {
-                "id": "138a9003-9854-49a5-ab24-2c2a4cde9a11",
-                "resourcePath": "sprites\/spr_playerA_flipped\/spr_playerA_flipped.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -260,14 +236,6 @@
                 "id": "79be055a-a1f2-44d3-b4ad-54985ef86153",
                 "resourcePath": "options\/ios\/options_ios.yy",
                 "resourceType": "GMiOSOptions"
-            }
-        },
-        {
-            "Key": "842cd7d7-155a-448f-9ff6-6205d3a8d1cf",
-            "Value": {
-                "id": "b0d8efd3-d9d1-4d4f-8a14-1faa3752427f",
-                "resourcePath": "sprites\/spr_playerA_up_flipped\/spr_playerA_up_flipped.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -354,7 +322,7 @@
             "Key": "ab37cd1c-45d7-4933-bf7d-7358f0f18372",
             "Value": {
                 "id": "34ece3bf-067b-46d4-ab93-a8fd4fbdd229",
-                "resourcePath": "sprites\/spr_playerB_flipped\/spr_playerB_flipped.yy",
+                "resourcePath": "sprites\/spr_playerB_dead\/spr_playerB_dead.yy",
                 "resourceType": "GMSprite"
             }
         },

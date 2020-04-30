@@ -1,9 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//image_xscale = 3.25;
-image_yscale = 3.25;
-
 
 //change x pos of player using spd variable
 //x += x_spd;
@@ -47,9 +44,7 @@ if(y_spd > 0){ //if player is moving down
 				//change sprite so it's damaged
 				bush.sprite_index = spr_platform_damaged;
 			}
-		} //else {
-			//bush.damaged_bush = false;
-		//}
+		} 
 	}
 }
 
@@ -58,28 +53,39 @@ if(y_spd > 0){ //if player is moving down
 //bool respawn pertains to after player is knocked out so it should include being shot back up but not the timer?
 
 
+//this is condition of respawn = true;
 if(respawn == true){
-	y_spd = jump_spd * 1.5; //this is condition of respawn = true;
+	//moves the player up into game screen
+	y_spd = jump_spd * 1.5; 
 }
 
+//if collision with floor
 if(place_meeting(x, y, obj_floor)){
+	//stop player
 	y_spd = 0;
+	//start respawn timer
 	if(respawn_timer > 0){
 		respawn_timer -= 1;
 	}
+	//
 	if(respawn_timer <= 0){
+		//setting the player above the floor so it can move up
+		y -= 20;
+		//move player up
 		respawn = true;
 		respawn_timer = 60;
-		//player comes back up
-		y -= 20;
 		//randomize x position of player 
 		x = random_range(45, room_width-45);
 	}
 }
 
-//when should respawn become false? this will lead to working player controls and regular bush collisions and have grav
-if(y < 420) and (respawn == true){
+//when respawn become false, player will be alive again (not knocked out) 
+//with working player controls and regular bush collisions and have grav
+//y < 430 is above bushes
+if(y < 430) and (respawn == true){
+	//back in game screen
 	respawn = false;
+	//alive now and works normally
 	knocked_out = false;
 }
 
