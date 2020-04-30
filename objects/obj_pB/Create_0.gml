@@ -10,4 +10,4 @@ show_playerwins = false;
 playerwinspart = part_type_create();
 part_type_shape(playerwinspart, pt_shape_star);
 part_type_size(playerwinspart, 0.08, 0.2, 0.01, 0.1);
-part_type_color1(playerwinspart, c_yellow);
+part_type_color1(playerwinspart, c_red); //other player gets knocked out

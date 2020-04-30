@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+image_xscale = 3.25;
 //player controls
 if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if the player is pressing left and controls_enabled is true
 	//subtract x_spd and move left
@@ -13,6 +14,10 @@ if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if
 	x_spd *= 0.95;
 }
 
+//if on the right side of the player then turn the sprite so it's facing the other player the right way
+if(x > otherplayer.x){
+	image_xscale = -3.25;
+}
 
 //use speed to set position
 x += x_spd;
@@ -124,15 +129,10 @@ if(punching == true) and (player_collide){
 	show_playerwins = true;
 }
 
-//if on the right side of the player then turn the sprite so it's facing the other player the right way
-if(x > otherplayer.x){
-	
-	sprite_index = spr_playerB_flipped;
-}
 
 
 //update the position of the player wins emitter every frame to match this instance position
-part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(playerwins, playerwins_emitter, otherplayer.x, otherplayer.x, y, y, ps_shape_rectangle, ps_distr_gaussian);
 if (show_playerwins == true) {
 //emit 1 per frame
 //tell the new emitter to stream one particle every frame

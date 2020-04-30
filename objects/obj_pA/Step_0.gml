@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+image_xscale = 3.25;
 //player controls
 if(keyboard_check(vk_left) and controls_enabled and knocked_out == false){ //if the player is pressing left and controls_enabled is true
 	//then subtracting x_spd and move left
@@ -12,6 +12,12 @@ if(keyboard_check(vk_left) and controls_enabled and knocked_out == false){ //if 
 } else { //else slow down a bit
 	x_spd *= 0.95;
 }
+
+//if on the left side of the player then turn the sprite so it's facing the other player the right way
+if(x < otherplayer.x){
+	image_xscale = -3.25;
+}
+
 //use speed to set position
 x += x_spd;
 	
@@ -79,7 +85,6 @@ if(keyboard_check(vk_down)){
 }
 
 
-
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
 	show_debug_message("punching and colliding");
@@ -88,10 +93,8 @@ if(punching == true) and (player_collide){
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
 		x_spd = 15;
-		//otherplayer.x_spd = -7; // other player ricochets faster to the left
 	} else { //else i must be to the left of the other player
 		x_spd = -15; //ricochet to the left
-		//otherplayer.x_spd = 7; //other player ricochets faster to the right
 	}
 	
 	if(otherplayer.knocked_out == false){ //only add score once
@@ -107,16 +110,9 @@ if(punching == true) and (player_collide){
 
 
 
-//if on the left side of the player then turn the sprite so it's facing the other player the right way
-if(x < otherplayer.x){
-	//sprite_index = spr_playerA_flipped;
-	image_xscale = -1;
-}
-
-
 
 //update the position of the player wins emitter every frame to match this instance position
-part_emitter_region(playerwins, playerwins_emitter, otherplayer.x - 20, otherplayer.x + 20, y - 20, y + 20, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_region(playerwins, playerwins_emitter, otherplayer.x, otherplayer.x, y, y, ps_shape_rectangle, ps_distr_gaussian);
 if (show_playerwins == true) {
 //emit 1 per frame
 //tell the new emitter to stream one particle every frame
