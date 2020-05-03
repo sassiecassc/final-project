@@ -25,8 +25,9 @@ if(keyboard_check(vk_down)){
 } else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerA_up;
-} else {
-	//sprite is still
+} else if(y_spd > 0){
+	//sprite should be down
+	//how do i get animation smoothhhshshhshshshs
 	sprite_index = spr_playerA;
 }
 
@@ -52,11 +53,13 @@ x += x_spd;
 //if(controls_enabled == false){ //player should not be able to use controls
 	
 //}
-	
+
+boxing_glove = sprite_height/2;
 
 //collision with other player = small bounce away from each other in opposite directions
 if(place_meeting(x, y, otherplayer)){
 	player_collide = true;
+	instance_create_layer(x.boxing_glove, y.boxing_glove, "Instances", obj_part);
 }
 
 
@@ -70,10 +73,11 @@ if(player_collide == true){
 			stun_timer = 20; //set timer back to 10
 			controls_enabled = true;
 			player_collide = false;
+			instance_destroy(obj_part);
 		}
 	}
 	
-	
+
 	if(x > otherplayer.x){ //to the right of other player and moving left
 		x_spd = 8; //move right
 		y_spd = -8; //shoot player up
