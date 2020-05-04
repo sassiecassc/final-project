@@ -79,6 +79,14 @@ if(place_meeting(x, y, otherplayer) and (y < 530)){
 	player_collide = true;
 }
 
+if(controls_bool == true){
+	controls_timer -= 1;
+	if(controls_timer <= 0){
+		controls_enabled = true;
+		controls_bool = false;
+	}
+}
+
 
 //setting what happens when two players collide
 //what is this
@@ -89,8 +97,9 @@ if(player_collide == true){
 		
 		if(stun_timer <= 0){ //if timer hits 0 then
 			stun_timer = 5; //set timer back to 10
-			controls_enabled = true;
 			player_collide = false;
+			controls_timer = 40;
+			controls_bool = true;
 		}
 	}
 	

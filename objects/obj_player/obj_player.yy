@@ -209,6 +209,34 @@
             "value": "0",
             "varName": "kicking",
             "varType": 3
+        },
+        {
+            "id": "ceea3164-4f99-4f44-9abe-6600dfff5397",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "controls_bool",
+            "varType": 3
+        },
+        {
+            "id": "f19d0210-aeb7-45e7-8fab-d77a894519ad",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "40",
+            "varName": "controls_timer",
+            "varType": 0
         }
     ],
     "solid": false,

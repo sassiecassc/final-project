@@ -88,7 +88,13 @@ if(place_meeting(x, y, otherplayer) and (y < 530)){
 //set controls_bool false
 //}
 //}
-
+if(controls_bool == true){
+	controls_timer -= 1;
+	if(controls_timer <= 0){
+		controls_enabled = true;
+		controls_bool = false;
+	}
+}
 
 //setting what happens when two players collide
 //stun timer is so the ricochet movement happens without player controls hindering that
@@ -101,10 +107,9 @@ if(player_collide == true){
 		
 		if(stun_timer <= 0){ //if timer hits 0 then
 			stun_timer = 5; //set timer back to 10
-			controls_enabled = true;
 			player_collide = false;
-			//controls_timer = 10;
-			//controls_bool = true;
+			controls_timer = 40;
+			controls_bool = true;
 			//set kick sound bool to false
 		}
 	}
