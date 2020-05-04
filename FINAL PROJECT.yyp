@@ -90,7 +90,7 @@
             "Key": "1e614c67-1aea-40e7-a2bb-23640147dbeb",
             "Value": {
                 "id": "b03cb765-249f-429c-bfe6-c7c05e3db54f",
-                "resourcePath": "objects\/obj_part\/obj_part.yy",
+                "resourcePath": "objects\/obj_collide_part\/obj_collide_part.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -130,7 +130,7 @@
             "Key": "26acc159-a63a-461d-8db6-7950ac4fc3c5",
             "Value": {
                 "id": "eb8dc64c-24c7-4c3d-8173-1f15d81c6bce",
-                "resourcePath": "sprites\/spr_part\/spr_part.yy",
+                "resourcePath": "sprites\/spr_collide_part\/spr_collide_part.yy",
                 "resourceType": "GMSprite"
             }
         },

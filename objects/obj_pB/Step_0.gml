@@ -68,7 +68,7 @@ if(player_collide == true){
 		controls_enabled = false;
 		
 		if(stun_timer <= 0){ //if timer hits 0 then
-			stun_timer = 20; //set timer back to 10
+			stun_timer = 30; //set timer back to 10
 			controls_enabled = true;
 			player_collide = false;
 		}
@@ -76,15 +76,15 @@ if(player_collide == true){
 	
 	
 	if(x > otherplayer.x){ //to the right of other player and moving left
-		x_spd = 8; //move right
-		y_spd = -8; //shoot player up
-		otherplayer.x_spd = -8; //move left
-		otherplayer.y_spd = -8; //shoot player up
+		x_spd = 2; //move right
+		y_spd = -4; //shoot player up
+		otherplayer.x_spd = -2; //move left
+		otherplayer.y_spd = -4; //shoot player up
 	} else if(x < otherplayer.x){ //to the left of the other player and moving right
-		x_spd = -8; //move left
-		y_spd = -8; //shoot player up
-		otherplayer.x_spd = 8; //move left
-		otherplayer.y_spd = -8; //shoot player up
+		x_spd = -2; //move left
+		y_spd = -4; //shoot player up
+		otherplayer.x_spd = 2; //move left
+		otherplayer.y_spd = -4; //shoot player up
 	}
 }
 

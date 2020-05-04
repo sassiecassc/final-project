@@ -54,47 +54,52 @@ x += x_spd;
 	
 //}
 
-boxing_glove = sprite_height/2;
+
 
 //collision with other player = small bounce away from each other in opposite directions
 if(place_meeting(x, y, otherplayer)){
 	player_collide = true;
-	instance_create_layer(x.boxing_glove, y.boxing_glove, "Instances", obj_part);
+	
+	//particle sprite
+	collide_sprite = instance_create_layer(x, y, "Instances", obj_collide_part);
+	collide_sprite.x = x;
+	collide_sprite.y = y;
+	collide_sprite.image_index = 0;
+	collide_sprite.image_speed = 1;
 }
 
 
 //setting what happens when two players collide
+//stun timer is so the ricochet movement happens without player controls hindering that
 if(player_collide == true){ 
 	if(stun_timer > 0){ //if stun timer is greater than 0 then start the timer
 		stun_timer -= 1;
 		controls_enabled = false;
 		
 		if(stun_timer <= 0){ //if timer hits 0 then
-			stun_timer = 20; //set timer back to 10
+			stun_timer = 30; //set timer back to 10
 			controls_enabled = true;
 			player_collide = false;
-			instance_destroy(obj_part);
 		}
 	}
 	
 
 	if(x > otherplayer.x){ //to the right of other player and moving left
-		x_spd = 8; //move right
-		y_spd = -8; //shoot player up
-		otherplayer.x_spd = -8; //move left
-		otherplayer.y_spd = -8; //shoot player up
+		x_spd = 2; //move right
+		y_spd = -4; //shoot player up
+		otherplayer.x_spd = -2; //move left
+		otherplayer.y_spd = -4; //shoot player up
 	} else if(x < otherplayer.x){ //to the left of the other player and moving right
-		x_spd = -8; //move left
-		y_spd = -8; //shoot player up
-		otherplayer.x_spd = 8; //move left
-		otherplayer.y_spd = -8; //shoot player up
+		x_spd = -2; //move left
+		y_spd = -4; //shoot player up
+		otherplayer.x_spd = 2; //move left
+		otherplayer.y_spd = -4; //shoot player up
 	}
 }
 
 
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
-	show_debug_message("punching and colliding");
 	//if im punching AND touching the other player, then
 	//knock the palyers away from each other by changing their speeds
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide

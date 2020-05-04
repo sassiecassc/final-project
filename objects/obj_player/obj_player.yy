@@ -150,7 +150,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "30",
             "varName": "stun_timer",
             "varType": 0
         },

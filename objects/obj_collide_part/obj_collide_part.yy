@@ -2,7 +2,7 @@
     "id": "1e614c67-1aea-40e7-a2bb-23640147dbeb",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_part",
+    "name": "obj_collide_part",
     "eventList": [
         {
             "id": "1aefd0d9-a4ff-4de2-a6ff-5198d7e1afdc",

@@ -2,7 +2,7 @@
     "id": "26acc159-a63a-461d-8db6-7950ac4fc3c5",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_part",
+    "name": "spr_collide_part",
     "For3D": false,
     "HTile": false,
     "VTile": false,
