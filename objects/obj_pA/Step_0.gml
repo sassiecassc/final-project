@@ -22,6 +22,7 @@ if(keyboard_check(vk_down) == false){
 //player can kick at any time but kick will count if they are colliding and kicking at the same time
 if(keyboard_check(vk_up) == false){
 	kicking = false;
+	
 }
 
 if(keyboard_check(vk_down)){
@@ -29,7 +30,6 @@ if(keyboard_check(vk_down)){
 	punching = true;
 } else if(keyboard_check(vk_up)){
 	sprite_index = spr_playerA_kick;
-	kicking = true;
 } else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerA_up;
@@ -69,6 +69,7 @@ x += x_spd;
 //collision with other player = small bounce away from each other in opposite directions
 if(place_meeting(x, y, otherplayer)){
 	player_collide = true;
+	audio_play_sound(snd_collide, 0, 0);
 	
 	//particle sprite
 	collide_sprite = instance_create_layer(x, y, "Instances", obj_collide_part);
@@ -93,7 +94,7 @@ if(player_collide == true){
 		}
 	}
 	
-	//if(kicking == false) and (punching == false){
+	if(kicking == false) and (punching == false){
 		if(x > otherplayer.x){ //to the right of other player and moving left
 			x_spd = 2; //move right
 			y_spd = -4; //shoot player up
@@ -106,11 +107,12 @@ if(player_collide == true){
 			otherplayer.y_spd = -4; //shoot player up
 		}
 	}
-//}
+}
 
 
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
+	audio_play_sound(snd_punch, 0, 0);
 	//if im punching AND touching the other player, then
 	//knock the palyers away from each other by changing their speeds
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
@@ -134,6 +136,14 @@ if(punching == true) and (player_collide){
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
+	audio_play_sound(snd_kick, 0, 0);
+	kicking = true;
+	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);
+	kick_sprite.x = x;
+	kick_sprite.y = y;
+	kick_sprite.image_index = 0;
+	kick_sprite.image_speed = 1;
+	
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
 		x_spd = 10;

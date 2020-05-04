@@ -127,6 +127,13 @@ if(punching == true) and (player_collide){
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
+	kicking = true;
+	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);
+	kick_sprite.x = x;
+	kick_sprite.y = y;
+	kick_sprite.image_index = 0;
+	kick_sprite.image_speed = 1;
+	
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
 		x_spd = 10;

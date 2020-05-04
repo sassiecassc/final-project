@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "0dcffa9c-6d65-4bd9-90c4-e942d6215642",
+            "Value": {
+                "id": "b51a81e0-b92e-4ed4-b2ec-22bf889a36d9",
+                "resourcePath": "objects\/obj_kick_part\/obj_kick_part.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0f64c423-7055-4ff2-83f7-2a6d6fb50070",
             "Value": {
                 "id": "c20e2c67-68e6-4e74-8b52-c27e6fa33b4a",
@@ -87,6 +95,14 @@
             }
         },
         {
+            "Key": "16ddd833-0e58-4491-be9d-f55071d5968e",
+            "Value": {
+                "id": "27403a6f-ae09-4cf0-98c0-d664a80980ad",
+                "resourcePath": "sprites\/spr_kick_part\/spr_kick_part.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e614c67-1aea-40e7-a2bb-23640147dbeb",
             "Value": {
                 "id": "b03cb765-249f-429c-bfe6-c7c05e3db54f",
@@ -108,6 +124,14 @@
                 "id": "974b5c80-45a4-4f46-b730-5bdf2b3a097f",
                 "resourcePath": "sprites\/spr_playerB_down\/spr_playerB_down.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "25745b49-a4ab-4944-82cf-265261788b19",
+            "Value": {
+                "id": "18f98ec4-05d8-4c2b-b095-e645dde5ef7f",
+                "resourcePath": "sounds\/snd_punch\/snd_punch.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -191,6 +215,14 @@
             }
         },
         {
+            "Key": "5062aee9-8fcf-470c-8a02-996bd13ce4ed",
+            "Value": {
+                "id": "2cab4f75-2bb6-4ad0-9eda-9b7ff622bbe3",
+                "resourcePath": "sounds\/snd_collide\/snd_collide.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "55f69e1a-5a3f-4697-9cd6-f1bde426ba5b",
             "Value": {
                 "id": "6d7d577b-5618-4e06-b9ea-2fc92c92026c",
@@ -220,6 +252,14 @@
                 "id": "7e385b69-6c1f-4ead-a164-f1ca29af8091",
                 "resourcePath": "objects\/obj_platform\/obj_platform.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6be4a583-c159-4c20-a7ad-455c20cd00e2",
+            "Value": {
+                "id": "876d05e2-e4c8-439b-aaef-f77dbdddb7dd",
+                "resourcePath": "sounds\/snd_kick\/snd_kick.yy",
+                "resourceType": "GMSound"
             }
         },
         {
