@@ -67,6 +67,14 @@ x += x_spd;
 //collision with other player = small bounce away from each other in opposite directions
 if(place_meeting(x, y, otherplayer)){
 	player_collide = true;
+	audio_play_sound(snd_collide, 0, 0);
+	
+	//particle sprite
+	collide_sprite = instance_create_layer(x, y, "Instances", obj_collide_part);
+	collide_sprite.x = x;
+	collide_sprite.y = y;
+	collide_sprite.image_index = 0;
+	collide_sprite.image_speed = 1;
 }
 
 
@@ -103,6 +111,7 @@ if(player_collide == true){
 
 //ready to do something with this punching variable and the player collide variable
 if(punching == true) and (player_collide){
+	audio_play_sound(snd_punch, 0, 0);
 	//if im punching AND touching the other player, then
 	//knock me away because i am still alive by changing my x_spd away from knocked out player
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
@@ -127,6 +136,7 @@ if(punching == true) and (player_collide){
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
+	audio_play_sound(snd_kick, 0, 0);
 	kicking = true;
 	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);
 	kick_sprite.x = x;
