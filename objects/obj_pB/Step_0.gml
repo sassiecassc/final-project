@@ -173,7 +173,9 @@ if(punching == true) and (player_collide){
 	
 	//tell the other player to be knocked out
 	otherplayer.knocked_out = true;
-	
+	knocked_out_part = instance_create_layer(otherplayer.x, otherplayer.y - 60, "Instances", obj_knocked_out_part);
+	knocked_out_part.image_index = 0;
+	knocked_out_part.image_speed = 1;
 	//particle effect when knocked out
 	//setting condition
 	show_playerwins = true;
@@ -214,7 +216,8 @@ if(otherplayer.kicking == true) and (player_collide){
 }
 
 //update the position of the player wins emitter every frame to match this instance position
-part_emitter_region(playerwins, playerwins_emitter, otherplayer.x, otherplayer.x, y, y, ps_shape_rectangle, ps_distr_gaussian);
+part_emitter_region(playerwins, playerwins_emitter, otherplayer.x, otherplayer.x, y, y, 
+ps_shape_diamond, ps_distr_gaussian);
 if (show_playerwins == true) {
 //emit 1 per frame
 //tell the new emitter to stream one particle every frame
@@ -225,7 +228,7 @@ part_emitter_stream(playerwins, playerwins_emitter, playerwinspart, 0);
 }
 
 //setting condition of when particle effect should stop
-if(otherplayer.y >= room_height - 50){
+if(otherplayer.y >= room_height - 200){
 	show_playerwins = false;
 }
 
