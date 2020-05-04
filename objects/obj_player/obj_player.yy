@@ -195,6 +195,20 @@
             "value": "True",
             "varName": "controls_enabled",
             "varType": 3
+        },
+        {
+            "id": "7baf8007-0c91-470f-ad90-6ea121da0e9b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "kicking",
+            "varType": 3
         }
     ],
     "solid": false,
