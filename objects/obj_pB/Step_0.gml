@@ -15,22 +15,57 @@ if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if
 	x_spd *= 0.95;
 }
 
+
+//if player has attacked then set player_attacked bool to true
+//if player_attacked bool is true then disable attack controls and
+//start attack_timer (stun the player who attacked)
+//when the attack_timer is 0 then 
+//enable attack controls and
+//reset player_attacked bool to false
+//reset the attack timer
+
+
+//if the player just attacked then
+if(player_attacked == true){
+	//players cannot use the attack controls
+	attack_controls = false;
+	
+	//start the stun attack timer
+	if(attack_timer > 0){
+		attack_timer -= 1;
+	}
+	if(attack_timer <= 0){
+		//after the timer the player can use the attack controls again
+		attack_controls = true;
+		//the player did not just attack
+		player_attacked = false;
+		attack_timer = 80;
+	}
+}
+
+
 //player can punch at any time when they are pressing down punch key but it wont count unless colliding
-if(keyboard_check(ord("S")) == false){
+if(keyboard_check(ord("S")) == false and attack_controls == true){
 	punching = false;
 }
 //player can kick at any time but kick will count if they are colliding and kicking at the same time
-if(keyboard_check(ord("W")) == false){
+if(keyboard_check(ord("W")) == false and attack_controls == true){
 	kicking = false;
 }
 
 
 if(keyboard_check(ord("S"))){
-	sprite_index = spr_playerB_punch1; //switch to punching sprite
-	punching = true;
+	if(attack_controls == true){
+		sprite_index = spr_playerB_punch1; //switch to punching sprite
+		punching = true;
+		player_attacked = true;
+	}
 } else if(keyboard_check(ord("W"))){
-	sprite_index = spr_playerB_kick;
-	kicking = true;
+		if(attack_controls == true){
+		sprite_index = spr_playerB_kick;
+		kicking = true;
+		player_attacked = true;
+	}
 }else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerB_up;
@@ -116,7 +151,6 @@ if(player_collide == true){
 		//otherplayer.y_spd = -8; //shoot player up
 	}
 }
-
 
 
 

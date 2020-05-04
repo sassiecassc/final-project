@@ -265,6 +265,48 @@
             "value": "0",
             "varName": "played_kick_snd",
             "varType": 3
+        },
+        {
+            "id": "050c5468-4572-4c8b-955d-020019880290",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "200",
+            "varName": "attack_timer",
+            "varType": 0
+        },
+        {
+            "id": "1dd28a84-a3ee-459f-abfd-38f9447d2235",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "player_attacked",
+            "varType": 3
+        },
+        {
+            "id": "b4735b7b-90ea-4677-8174-e8e6754360fb",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "attack_controls",
+            "varType": 3
         }
     ],
     "solid": false,

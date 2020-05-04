@@ -17,6 +17,3 @@ part_type_shape(playerwinspart, pt_shape_star);
 part_type_size(playerwinspart, 0.08, 0.2, 0.01, 0.1);
 part_type_color1(playerwinspart, c_blue); //other player gets knocked out
 
-//controls_enabled
-//knocked_out
-//punching

@@ -15,22 +15,52 @@ if(keyboard_check(vk_left) and controls_enabled and knocked_out == false){ //if 
 }
 
 
-//player can punch at any time buT if they are pressing down punch key AND colliding then a punch will count.
-if(keyboard_check(vk_down) == false){
+//reset the attack timer
+//if the player just attacked then
+if(player_attacked == true){
+	//players cannot use the attack controls
+	attack_controls = false;
+	
+	//start the stun attack timer
+	if(attack_timer > 0){
+		attack_timer -= 1;
+	}
+	if(attack_timer <= 0){
+		//after the timer the player can use the attack controls again
+		attack_controls = true;
+		//the player did not just attack
+		player_attacked = false;
+		//reset the attack timer
+		attack_timer = 80;
+	}
+}
+
+//if the punch key is NOT being pressed then the player is not punching
+if(keyboard_check(vk_down) == false and attack_controls == true){
 	punching = false;
 }
-//player can kick at any time but kick will count if they are colliding and kicking at the same time
-if(keyboard_check(vk_up) == false){
+//if the kick key is NOT being pressed then the player is not kicking
+if(keyboard_check(vk_up) == false and attack_controls == true){
 	kicking = false;
 	
 }
 
 if(keyboard_check(vk_down)){
-	sprite_index = spr_playerA_punch1; //switch to punching sprite
-	punching = true;
+	if(attack_controls == true){
+		//player can punch at any time buT if they are pressing down punch key AND colliding 
+		//then a punch will count.
+		sprite_index = spr_playerA_punch1; //switch to punching sprite
+		punching = true;
+		player_attacked = true;
+	}
 } else if(keyboard_check(vk_up)){
-	sprite_index = spr_playerA_kick;
-	kicking = true;
+	if(attack_controls == true){
+		//player can kick at any time 
+		//but kick will count if they are colliding and kicking at the same time
+		sprite_index = spr_playerA_kick;
+		kicking = true;
+		player_attacked = true;
+	}
 } else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerA_up;
@@ -57,13 +87,6 @@ if(x < otherplayer.x){
 
 //use speed to set position
 x += x_spd;
-	
-	
-//as long as the stun_timer is still going (greater than 0) then 
-//players should not be able to move left or right
-//if(controls_enabled == false){ //player should not be able to use controls
-	
-//}
 
 
 
