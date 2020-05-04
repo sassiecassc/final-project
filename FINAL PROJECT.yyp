@@ -359,6 +359,14 @@
             }
         },
         {
+            "Key": "96c6b88f-9613-45ca-9bef-44b067426492",
+            "Value": {
+                "id": "f13de929-8ba9-47e6-8781-8a1fabf0251e",
+                "resourcePath": "sounds\/snd_music\/snd_music.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "a128950b-5063-4876-b4a6-b99dbd2ea6d1",
             "Value": {
                 "id": "94116378-6711-4e73-8254-42d230352cdf",
