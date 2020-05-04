@@ -125,6 +125,16 @@ if(punching == true) and (player_collide){
 	show_playerwins = true;
 }
 
+//what to do when players collide and kicking!
+if(kicking == true) and (player_collide){
+	if(x > otherplayer.x){ //if im to the right of the other player when we collide
+		//then ricochet to the right
+		x_spd = 10;
+	} else { //else i must be to the left of the other player
+		x_spd = -10; //ricochet to the left
+	}
+}
+
 
 
 //update the position of the player wins emitter every frame to match this instance position
