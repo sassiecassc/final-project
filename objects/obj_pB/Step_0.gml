@@ -19,10 +19,19 @@ if(keyboard_check(ord("A")) and controls_enabled and knocked_out == false){ //if
 if(keyboard_check(ord("S")) == false){
 	punching = false;
 }
+//player can kick at any time but kick will count if they are colliding and kicking at the same time
+if(keyboard_check(ord("W")) == false){
+	kicking = false;
+}
+
+
 if(keyboard_check(ord("S"))){
 	sprite_index = spr_playerB_punch1; //switch to punching sprite
 	punching = true;
-} else if(y_spd < 0){ //if not pressing space key and is moving up then 
+} else if(keyboard_check(ord("W"))){
+	sprite_index = spr_playerB_kick;
+	kicking = true;
+}else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerB_up;
 } else {
@@ -30,22 +39,6 @@ if(keyboard_check(ord("S"))){
 	sprite_index = spr_playerB;
 }
 
-
-//player can kick at any time but kick will count if they are colliding and kicking at the same time
-if(keyboard_check(vk_up) == false){
-	kicking = false;
-}
-if(keyboard_check(vk_up)){
-	sprite_index = spr_playerB_kick;
-	kicking = true;
-} else if(y_spd < 0){ //if not pressing space key and is moving up then 
-	//sprite should be up animation
-	sprite_index = spr_playerB_up;
-} else if(y_spd > 0){
-	//sprite should be down
-	//how do i get animation smoothhhshshhshshshs
-	sprite_index = spr_playerB;
-}
 
 
 
