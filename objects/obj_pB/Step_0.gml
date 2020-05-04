@@ -157,6 +157,19 @@ if(kicking == true) and (player_collide){
 }
 
 
+//if im kicking the other player then ricochet a liitle
+if(kicking == true) and (player_collide){
+	if(x > otherplayer.x){ //if im to the right of the other player when we collide
+		//then ricochet to the right
+		x_spd = 6;
+		y_spd = -3;
+	} else { //else i must be to the left of the other player
+		x_spd = -6; //ricochet to the left
+		y_spd = -3;
+	}
+}
+
+//if im being kicked then ricochet a lot
 if(otherplayer.kicking == true) and (player_collide){
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right

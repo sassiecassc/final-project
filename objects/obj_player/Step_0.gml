@@ -59,6 +59,7 @@ if(respawn == true){
 	y_spd = jump_spd * 1.5; 
 }
 
+
 //if collision with floor
 if(place_meeting(x, y, obj_floor)){
 	//stop player
@@ -76,13 +77,15 @@ if(place_meeting(x, y, obj_floor)){
 		respawn_timer = 60;
 		//randomize x position of playernew
 		new_x = random_range(45, room_width-45);
-		counter = 0;
 		//while(statement) if new_x is in between otherplayer.x + 10 and otherplayer.x - 10 and counter < 100 then it will run
 		//{
 				//new_x = random_range(45, room_width-45);
 				//counter ++;
 		//}
-		x = new_x;
+		//while(new_x > otherplayer.x - 20 and new_x < otherplayer.x + 20){
+		//	new_x = random_range(45, room_width-45);
+		//}
+		//x = new_x;
 	}
 }
 

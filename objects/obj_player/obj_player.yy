@@ -237,6 +237,34 @@
             "value": "40",
             "varName": "controls_timer",
             "varType": 0
+        },
+        {
+            "id": "ddd7828f-a5a3-4686-aec1-7950997b1559",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "new_x",
+            "varType": 0
+        },
+        {
+            "id": "67b20995-39a8-4063-b2cf-370eb6770e83",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "played_kick_snd",
+            "varType": 3
         }
     ],
     "solid": false,

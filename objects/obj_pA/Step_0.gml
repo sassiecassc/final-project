@@ -81,13 +81,8 @@ if(place_meeting(x, y, otherplayer) and (y < 530)){
 	}
 	player_collide = true;
 }
-//if(controles_bool){
-//countdown controls_timer 
-//if controls < 0{
-//controls enabled = true
-//set controls_bool false
-//}
-//}
+
+//controls bool and timer to make sure players bounce down after collision with each other (no attacks)
 if(controls_bool == true){
 	controls_timer -= 1;
 	if(controls_timer <= 0){
@@ -103,14 +98,13 @@ if(player_collide == true){
 		stun_timer -= 1;
 		controls_enabled = false;
 		
-		
-		
 		if(stun_timer <= 0){ //if timer hits 0 then
 			stun_timer = 5; //set timer back to 10
 			player_collide = false;
 			controls_timer = 40;
 			controls_bool = true;
 			//set kick sound bool to false
+			played_kick_snd = false;
 		}
 	}
 	
@@ -159,15 +153,35 @@ if(kicking == true) and (player_collide){
 	//boolean if the kick sound has played or not
 	//if false, play sound
 	//set it false when the stun timer is 0
-	audio_play_sound(snd_kick, 0, 0);
+	if(played_kick_snd == false){
+		audio_play_sound(snd_kick, 0, 0);
+	}
+	
+	
+	//particle sprite for kick (yellow)
 	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);
 	kick_sprite.x = otherplayer.x;
 	kick_sprite.y = otherplayer.y;
 	kick_sprite.image_index = 0;
 	kick_sprite.image_speed = 1;
 	//set kick sound bool true
+	played_kick_snd = true;
 }
 
+
+//if im kicking the other player then ricochet a liitle
+if(kicking == true) and (player_collide){
+	if(x > otherplayer.x){ //if im to the right of the other player when we collide
+		//then ricochet to the right
+		x_spd = 6;
+		y_spd = -3;
+	} else { //else i must be to the left of the other player
+		x_spd = -6; //ricochet to the left
+		y_spd = -3;
+	}
+}
+
+//if im being kicked then ricochet a lot
 if(otherplayer.kicking == true) and (player_collide){
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
