@@ -75,17 +75,19 @@ if(place_meeting(x, y, obj_floor)){
 		//move player up
 		respawn = true;
 		respawn_timer = 60;
+		
+		//reference to the other player so i can knock them away
+		var opponent = obj_pA; //get first instance of player A in the scene
+		if(object_index == obj_pA){ //im player A
+			opponent = obj_pB; //then player B is other player
+		}
+		
 		//randomize x position of playernew
 		new_x = random_range(45, room_width-45);
-		//while(statement) if new_x is in between otherplayer.x + 10 and otherplayer.x - 10 and counter < 100 then it will run
-		//{
-				//new_x = random_range(45, room_width-45);
-				//counter ++;
-		//}
-		//while(new_x > otherplayer.x - 20 and new_x < otherplayer.x + 20){
-		//	new_x = random_range(45, room_width-45);
-		//}
-		//x = new_x;
+		while(new_x > opponent.x - 20 and new_x < opponent.x + 20){
+			new_x = random_range(45, room_width-45);
+		}
+		x = new_x;
 	}
 }
 
