@@ -74,8 +74,15 @@ if(place_meeting(x, y, obj_floor)){
 		//move player up
 		respawn = true;
 		respawn_timer = 60;
-		//randomize x position of player 
-		x = random_range(45, room_width-45);
+		//randomize x position of playernew
+		new_x = random_range(45, room_width-45);
+		counter = 0;
+		//while(statement) if new_x is in between otherplayer.x + 10 and otherplayer.x - 10 and counter < 100 then it will run
+		//{
+				//new_x = random_range(45, room_width-45);
+				//counter ++;
+		//}
+		x = new_x;
 	}
 }
 

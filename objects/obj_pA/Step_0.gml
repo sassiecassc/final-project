@@ -30,6 +30,7 @@ if(keyboard_check(vk_down)){
 	punching = true;
 } else if(keyboard_check(vk_up)){
 	sprite_index = spr_playerA_kick;
+	kicking = true;
 } else if(y_spd < 0){ //if not pressing space key and is moving up then 
 	//sprite should be up animation
 	sprite_index = spr_playerA_up;
@@ -67,17 +68,26 @@ x += x_spd;
 
 
 //collision with other player = small bounce away from each other in opposite directions
-if(place_meeting(x, y, otherplayer)){
-	player_collide = true;
-	audio_play_sound(snd_collide, 0, 0);
+if(place_meeting(x, y, otherplayer) and (y < 530)){
+	if(player_collide == false){
+		audio_play_sound(snd_collide, 0, 0);
 	
-	//particle sprite
-	collide_sprite = instance_create_layer(x, y, "Instances", obj_collide_part);
-	collide_sprite.x = x;
-	collide_sprite.y = y;
-	collide_sprite.image_index = 0;
-	collide_sprite.image_speed = 1;
+		//particle sprite
+		collide_sprite = instance_create_layer(x, y, "Instances", obj_collide_part);
+		collide_sprite.x = x - 10;
+		collide_sprite.y = y;
+		collide_sprite.image_index = 0;
+		collide_sprite.image_speed = 1;
+	}
+	player_collide = true;
 }
+//if(controles_bool){
+//countdown controls_timer 
+//if controls < 0{
+//controls enabled = true
+//set controls_bool false
+//}
+//}
 
 
 //setting what happens when two players collide
@@ -87,24 +97,29 @@ if(player_collide == true){
 		stun_timer -= 1;
 		controls_enabled = false;
 		
+		
+		
 		if(stun_timer <= 0){ //if timer hits 0 then
-			stun_timer = 30; //set timer back to 10
+			stun_timer = 5; //set timer back to 10
 			controls_enabled = true;
 			player_collide = false;
+			//controls_timer = 10;
+			//controls_bool = true;
+			//set kick sound bool to false
 		}
 	}
 	
 	if(kicking == false) and (punching == false){
 		if(x > otherplayer.x){ //to the right of other player and moving left
-			x_spd = 2; //move right
-			y_spd = -4; //shoot player up
-			otherplayer.x_spd = -2; //move left
-			otherplayer.y_spd = -4; //shoot player up
+			x_spd = 8; //move right
+			y_spd = -8; //shoot player up
+			//otherplayer.x_spd = -8; //move left
+			//otherplayer.y_spd = -8; //shoot player up
 		} else if(x < otherplayer.x){ //to the left of the other player and moving right
-			x_spd = -2; //move left
-			y_spd = -4; //shoot player up
-			otherplayer.x_spd = 2; //move left
-			otherplayer.y_spd = -4; //shoot player up
+			x_spd = -8; //move left
+			y_spd = -8; //shoot player up
+			//otherplayer.x_spd = 8; //move left
+			//otherplayer.y_spd = -8; //shoot player up
 		}
 	}
 }
@@ -136,19 +151,24 @@ if(punching == true) and (player_collide){
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
+	//boolean if the kick sound has played or not
+	//if false, play sound
+	//set it false when the stun timer is 0
 	audio_play_sound(snd_kick, 0, 0);
-	kicking = true;
 	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);
-	kick_sprite.x = x;
-	kick_sprite.y = y;
+	kick_sprite.x = otherplayer.x;
+	kick_sprite.y = otherplayer.y;
 	kick_sprite.image_index = 0;
 	kick_sprite.image_speed = 1;
-	
+	//set kick sound bool true
+}
+
+if(otherplayer.kicking == true) and (player_collide){
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
 		//then ricochet to the right
-		x_spd = 10;
+		x_spd = 20;
 	} else { //else i must be to the left of the other player
-		x_spd = -10; //ricochet to the left
+		x_spd = -20; //ricochet to the left
 	}
 }
 
