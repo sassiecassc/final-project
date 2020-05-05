@@ -23,6 +23,16 @@
             "enumb": 0,
             "eventtype": 3,
             "m_owner": "65c9467c-e0c4-4c0a-90ec-bd2a4688bb26"
+        },
+        {
+            "id": "87d89a9a-7a31-4142-ae68-143ef106eb0c",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 7,
+            "eventtype": 7,
+            "m_owner": "65c9467c-e0c4-4c0a-90ec-bd2a4688bb26"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -71,20 +81,6 @@
             "varType": 0
         },
         {
-            "id": "74574069-72a3-4906-a9cc-98ab288b3edc",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "start_animation",
-            "varType": 3
-        },
-        {
             "id": "f1db48cd-3c7f-43c3-b989-e690912fa722",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -97,6 +93,20 @@
             "value": "0",
             "varName": "damaged_bush",
             "varType": 3
+        },
+        {
+            "id": "ab0e8f0b-e9bb-480f-b0b0-bd7eae4de743",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "8",
+            "varName": "bush_disappear_timer",
+            "varType": 0
         }
     ],
     "solid": false,

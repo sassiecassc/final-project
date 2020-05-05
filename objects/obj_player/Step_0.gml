@@ -40,7 +40,7 @@ if(y_spd > 0){ //if player is moving down
 				bush.bush_hp -= 1; //then subtract one after colliding with it
 				//then have the player bounce back up if the bush is "alive"
 				y_spd = jump_spd;
-			} if(bush.bush_hp == 1){
+			} if(bush.bush_hp == 2){
 				//change sprite so it's damaged
 				bush.sprite_index = spr_platform_damaged;
 			}
