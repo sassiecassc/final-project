@@ -546,7 +546,7 @@
             "Key": "de2f5a3e-c031-4666-98f6-b8b6156f0bc1",
             "Value": {
                 "id": "b23a3d30-3312-43c5-aaf1-5e03a219639c",
-                "resourcePath": "rooms\/room0\/room0.yy",
+                "resourcePath": "rooms\/game\/game.yy",
                 "resourceType": "GMRoom"
             }
         },
