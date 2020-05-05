@@ -18,13 +18,16 @@ if(bush_hp <= 0) and (bush_disappear_timer <= 0){
 	}
 }
 
-
+//hp timer is for the platform to come back when it hits 0 and platforms reappear at original position
+//if its time to bring platform back
 if(hp_timer <= 0){
 	x = og_xpos;
 	y = og_ypos;
+	sprite_index = spr_platform;
+	
 	//reset everything
 	bush_hp = 3;
 	hp_timer = 400;
-	bush_disappear_timer = 8;
-	sprite_index = spr_platform;
+	bush_disappear_timer = 12;
 }
+

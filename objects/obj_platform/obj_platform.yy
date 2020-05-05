@@ -104,8 +104,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "8",
+            "value": "12",
             "varName": "bush_disappear_timer",
+            "varType": 0
+        },
+        {
+            "id": "ef4f10fd-fd28-4d16-91c4-4e980f2a9703",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "12",
+            "varName": "reappear_timer",
             "varType": 0
         }
     ],

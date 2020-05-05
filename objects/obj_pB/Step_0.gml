@@ -181,6 +181,11 @@ if(punching == true) and (player_collide){
 	show_playerwins = true;
 }
 
+//if(knocked_out == true){
+//	image_yscale = -3.25;
+//}
+
+
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
 	audio_play_sound(snd_kick, 0, 0);

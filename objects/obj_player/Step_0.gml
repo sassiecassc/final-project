@@ -91,10 +91,14 @@ if(place_meeting(x, y, obj_floor)){
 	}
 }
 
+if(knocked_out == true){
+	image_yscale = -3.25;
+}
+
 //when respawn become false, player will be alive again (not knocked out) 
 //with working player controls and regular bush collisions and have grav
 //y < 430 is above bushes
-if(y < 430) and (respawn == true){
+if(y < 600) and (respawn == true){
 	//back in game screen
 	respawn = false;
 	//alive now and works normally
