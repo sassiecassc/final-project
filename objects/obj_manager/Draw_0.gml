@@ -9,5 +9,9 @@ if(room == title){
 	draw_set_color(c_red);
 	draw_text(445, 200, "PUNCH!");
 	
+	draw_set_font(font_small_title);
+	draw_set_color(c_black);
+	draw_text(50, 320, "press enter for instructions")
+	draw_text(470, 320, "press space to play")
 	
 }

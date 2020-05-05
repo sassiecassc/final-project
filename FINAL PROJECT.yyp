@@ -605,6 +605,14 @@
                 "resourcePath": "rooms\/title\/title.yy",
                 "resourceType": "GMRoom"
             }
+        },
+        {
+            "Key": "fd59dc07-9fb4-4c4a-b05f-86bb41e4ee2d",
+            "Value": {
+                "id": "1b450765-e536-4b6c-baab-76ad0baf062a",
+                "resourcePath": "fonts\/font_small_title\/font_small_title.yy",
+                "resourceType": "GMFont"
+            }
         }
     ],
     "script_order": [
