@@ -170,7 +170,7 @@ if(punching == true) and (player_collide){
 	knocked_out_part = instance_create_layer(otherplayer.x, otherplayer.y - 60, "Instances", obj_knocked_out_blue);
 	knocked_out_part.image_index = 0;
 	knocked_out_part.image_speed = 1;
-	//setting condition
+	//setting condition for star particle effect
 	show_playerwins = true;
 }
 
