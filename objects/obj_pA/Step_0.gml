@@ -67,7 +67,7 @@ if(keyboard_check(vk_down)){
 } else if(y_spd > 0){
 	//sprite should be down
 	//how do i get animation smoothhhshshhshshshs
-	sprite_index = spr_playerA;
+	sprite_index = spr_playerA_;
 }
 
 
@@ -186,6 +186,7 @@ if(punching == true) and (player_collide and otherplayer.kicking == true){
 	blue_kick_part = instance_create_layer(x - 20, y, "Instances", obj_blue_kick);
 	blue_kick_part.image_index = 0;
 	blue_kick_part.image_speed = 1;
+	blue_kick_part.depth = -1;
 	
 }
 

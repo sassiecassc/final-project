@@ -71,7 +71,7 @@ if(keyboard_check(ord("S"))){
 	sprite_index = spr_playerB_up;
 } else {
 	//sprite is still
-	sprite_index = spr_playerB;
+	sprite_index = spr_playerB_;
 }
 
 
@@ -195,9 +195,10 @@ if(punching == true) and (player_collide and otherplayer.kicking == true){
 		x_spd = -20; // i ricochet to the left
 	}
 	
-	blue_kick_part = instance_create_layer(x - 20, y, "Instances", obj_red_kick);
-	blue_kick_part.image_index = 0;
-	blue_kick_part.image_speed = 1;
+	red_kick_part = instance_create_layer(x - 20, y, "Instances", obj_red_kick);
+	red_kick_part.image_index = 0;
+	red_kick_part.image_speed = 1;
+	red_kick_part.depth = -1;
 	
 }
 
