@@ -39,7 +39,7 @@ if(player_attacked == true){
 		attack_controls = true;
 		//the player did not just attack
 		player_attacked = false;
-		attack_timer = 80;
+		attack_timer = 120;
 	}
 }
 
@@ -155,7 +155,8 @@ if(player_collide == true){
 
 
 //ready to do something with this punching variable and the player collide variable
-if(punching == true) and (player_collide){
+if(punching == true) and (player_collide and otherplayer.kicking == false){
+	player_attacked = true;
 	audio_play_sound(snd_punch, 0, 0);
 	//if im punching AND touching the other player, then
 	//knock me away because i am still alive by changing my x_spd away from knocked out player
@@ -181,13 +182,29 @@ if(punching == true) and (player_collide){
 	show_playerwins = true;
 }
 
-//if(knocked_out == true){
-//	image_yscale = -3.25;
-//}
+//IF OTHER PLAYER IS KICKING WHILE I AM PUNCHING 
+//THEN PUNCH DOES NOT WORK AND THE OTHER PLAYER HAS DEFENDED HIM/HERSELF
+if(punching == true) and (player_collide and otherplayer.kicking == true){
+	//they are just colliding
+	audio_play_sound(snd_collide, 0, 0);
+	
+	if(x > otherplayer.x){ //if im to the right of the other player when we collide
+		//then i ricochet to the right
+		x_spd = 20;
+	} else { //else i must be to the left of the other player
+		x_spd = -20; // i ricochet to the left
+	}
+	
+	blue_kick_part = instance_create_layer(x - 20, y, "Instances", obj_red_kick);
+	blue_kick_part.image_index = 0;
+	blue_kick_part.image_speed = 1;
+	
+}
 
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){
+	player_attacked = true;
 	audio_play_sound(snd_kick, 0, 0);
 	kicking = true;
 	kick_sprite = instance_create_layer(x, y, "Instances", obj_kick_part);

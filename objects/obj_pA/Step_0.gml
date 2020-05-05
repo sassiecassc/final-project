@@ -31,7 +31,7 @@ if(player_attacked == true){
 		//the player did not just attack
 		player_attacked = false;
 		//reset the attack timer
-		attack_timer = 80;
+		attack_timer = 120;
 	}
 }
 
@@ -135,28 +135,24 @@ if(player_collide == true){
 		if(x > otherplayer.x){ //to the right of other player and moving left
 			x_spd = 8; //move right
 			y_spd = -8; //shoot player up
-			//otherplayer.x_spd = -8; //move left
-			//otherplayer.y_spd = -8; //shoot player up
 		} else if(x < otherplayer.x){ //to the left of the other player and moving right
 			x_spd = -8; //move left
 			y_spd = -8; //shoot player up
-			//otherplayer.x_spd = 8; //move left
-			//otherplayer.y_spd = -8; //shoot player up
 		}
 	}
 }
 
 
 //ready to do something with this punching variable and the player collide variable
-if(punching == true) and (player_collide){
+if(punching == true) and (player_collide and otherplayer.kicking == false){
 	audio_play_sound(snd_punch, 0, 0);
 	//if im punching AND touching the other player, then
 	//knock the palyers away from each other by changing their speeds
 	if(x > otherplayer.x){ //if im to the right of the other player when we collide
-		//then ricochet to the right
+		//then i ricochet to the right
 		x_spd = 15;
 	} else { //else i must be to the left of the other player
-		x_spd = -15; //ricochet to the left
+		x_spd = -15; // i ricochet to the left
 	}
 	
 	if(otherplayer.knocked_out == false){ //only add score once
@@ -173,6 +169,26 @@ if(punching == true) and (player_collide){
 	//setting condition for star particle effect
 	show_playerwins = true;
 }
+
+//IF OTHER PLAYER IS KICKING WHILE I AM PUNCHING 
+//THEN PUNCH DOES NOT WORK AND THE OTHER PLAYER HAS DEFENDED HIM/HERSELF
+if(punching == true) and (player_collide and otherplayer.kicking == true){
+	//they are just colliding
+	audio_play_sound(snd_collide, 0, 0);
+	
+	if(x > otherplayer.x){ //if im to the right of the other player when we collide
+		//then i ricochet to the right
+		x_spd = 20;
+	} else { //else i must be to the left of the other player
+		x_spd = -20; // i ricochet to the left
+	}
+	
+	blue_kick_part = instance_create_layer(x - 20, y, "Instances", obj_blue_kick);
+	blue_kick_part.image_index = 0;
+	blue_kick_part.image_speed = 1;
+	
+}
+
 
 //what to do when players collide and kicking!
 if(kicking == true) and (player_collide){

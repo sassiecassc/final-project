@@ -286,7 +286,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "200",
+            "value": "120",
             "varName": "attack_timer",
             "varType": 0
         },

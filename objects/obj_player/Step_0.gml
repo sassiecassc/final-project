@@ -16,14 +16,14 @@ x_spd = x_spd * 0.9;
 
 
 //wall collision (screen borders)
-if(x < 20){ //left wall
-x = 20; //put them on the left wall
+if(x < 50){ //left wall
+x = 50; //put them on the left wall
 x_spd = -1 * x_spd;
 }
 
 //wall collision (screen borders)
-if(x > room_width-40){ //right wall
-x = room_width-40 //put them on the right wall
+if(x > room_width-70){ //right wall
+x = room_width-70 //put them on the right wall
 x_spd = -1 * x_spd;
 }
 

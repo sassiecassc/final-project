@@ -111,14 +111,6 @@
             }
         },
         {
-            "Key": "226f21a2-283c-45a5-b84a-78b37544b3a9",
-            "Value": {
-                "id": "244ea1fd-df49-49b0-818b-43cded23ecf7",
-                "resourcePath": "sprites\/spr_part_collide\/spr_part_collide.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "2524537c-51b0-4dd5-b679-694282cd4696",
             "Value": {
                 "id": "974b5c80-45a4-4f46-b730-5bdf2b3a097f",
@@ -259,6 +251,14 @@
             "Value": {
                 "id": "7e385b69-6c1f-4ead-a164-f1ca29af8091",
                 "resourcePath": "objects\/obj_platform\/obj_platform.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "686ce299-78e6-44ed-883d-bcaaca4e5c6c",
+            "Value": {
+                "id": "08cc397e-96d9-4feb-b454-4dfe023f094d",
+                "resourcePath": "objects\/obj_blue_kick\/obj_blue_kick.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -455,6 +455,14 @@
             }
         },
         {
+            "Key": "b4bad1c3-4918-4b79-bf36-6e15d38e0a25",
+            "Value": {
+                "id": "28b9234d-8e9a-4e41-a0ce-32be9908b410",
+                "resourcePath": "sprites\/spr_kick_part_blue\/spr_kick_part_blue.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b4c588b2-370a-4e78-bc50-5e8b7895255a",
             "Value": {
                 "id": "7311ccb7-6beb-4465-bfc8-23fdb24eae7e",
@@ -490,7 +498,7 @@
             "Key": "cf8f94dc-b034-4a5d-94f4-8af7795ac84a",
             "Value": {
                 "id": "5b79802b-00eb-449c-b56a-ed83bfae415d",
-                "resourcePath": "objects\/object12\/object12.yy",
+                "resourcePath": "objects\/obj_red_kick\/obj_red_kick.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -508,6 +516,14 @@
                 "id": "50d98f4e-c616-4de1-80b5-ddef69217ee0",
                 "resourcePath": "views\/d5579b26-a1c8-47be-b670-5c3b0100c8dd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d566fa83-b52d-4202-bfda-3606c59225fb",
+            "Value": {
+                "id": "e781bc63-578c-4137-b129-1b57391896ce",
+                "resourcePath": "sprites\/spr_kick_part_red\/spr_kick_part_red.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
